@@ -7,7 +7,7 @@
 # libraries needed
 libs <- c(
     "tidyverse", "stringr", "httr", "sf",
-    "giscoR", "scales"
+    "giscoR", "scales","tigris"
 )
 
 # install missing libraries
@@ -105,7 +105,7 @@ ggplot() +
 ### -----------------------
 # get virginia shapefile
 # Install if necessary
-install.packages("tigris")
+#install.packages("tigris")
 
 # Load library
 library(tigris)
@@ -140,8 +140,7 @@ ggplot() +
         )
 
 ### 4) LABELING
-### ------------
-# METHOD 1
+
 us_labeled_places <- places_clean_df |>
     dplyr::filter(
             country_code == "US",
