@@ -1,9 +1,10 @@
 ################################################################################
-#                 How do I map data points in R
-#                 Milos Popovic
-#                 2023/03/04
+#                 How do I map virginia population in R
+#                 Leo Feng
+#                 2025/01/29 
+#                 Based on the work of Milos Popovic
 ################################################################################
-# libraries we need
+# libraries needed
 libs <- c(
     "tidyverse", "stringr", "httr", "sf",
     "giscoR", "scales"
@@ -161,20 +162,6 @@ us_labeled_places[1:10, "long"] <- coords[, 1]
 us_labeled_places[1:10, "lat"] <- coords[, 2]
 head(us_labeled_places)
 
-
-# METHOD 2
-# us_labeled_places <- us_places |>
-#     dplyr::mutate(
-#         long = unlist(map(geometry, 1)),
-#         lat = unlist(map(geometry, 2))
-#     ) |>
-#     dplyr::select(
-#         name, long, lat, pop) |>
-#     sf::st_drop_geometry() |>
-#     as.data.frame() |>
-#     dplyr::arrange(desc(pop))
-# 
-# head(us_labeled_places)
 
 # FINAL MAP
 ggplot() +
